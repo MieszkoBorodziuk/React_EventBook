@@ -6,17 +6,19 @@ import Filters from './Filters';
 import EventList from './EventList';
 import Footer from './Footer';
 import SimpleMap from './Map'
+import AddEvent from './AddEvent';
 
 
 
 
 class App extends Component {
+  counter = 4
   state = {
     events: [
       {
         id: 0,
         name: 'Piwo na górkach',
-        date: '12.10.2020',
+        date: '2020-10-12',
         time: '18:00',
         location: 'Warszawa',
         public: true,
@@ -24,7 +26,7 @@ class App extends Component {
       {
         id: 1,
         name: 'Rowerem na molo',
-        date: '20.09.2020',
+        date: '2020-09-20',
         time: '12:00',
         location: 'Trojmiasto',
         public: true,
@@ -32,7 +34,7 @@ class App extends Component {
       {
         id: 2,
         name: 'Kino pod chmurką',
-        date: '15.06.2021',
+        date: '2021-06-15',
         time: '20:00',
         location: 'Warszawa',
         public: true,
@@ -40,12 +42,29 @@ class App extends Component {
       {
         id: 3,
         name: "Ognisko na plaży",
-        date: "05.07.2021",
+        date: "2021-07-05",
         time: "21:00",
         location: 'Warszawa',
         public: true,
       },
     ]
+  }
+
+  addEvent = (name, date, time, pub) => {
+    const event =
+    {
+      id: this.counter,
+      name,
+      date,
+      time,
+      location: 'Warszawa',
+      public: pub,
+    }
+    this.counter++;
+
+    this.setState(prevState => ({
+      events: [...prevState.events, event]
+    }))
   }
 
   render() {
@@ -60,7 +79,8 @@ class App extends Component {
           </div>
           <main>
             <div className="main-eventlist">
-              <EventList  events={this.state.events}/>
+              <EventList events={this.state.events} />
+              <AddEvent add={this.addEvent} />
             </div>
             <div className="main-map">
               <SimpleMap />
