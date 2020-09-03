@@ -1,9 +1,16 @@
 import React from 'react';
-import '../Styles/sass/eventlist.sass'
+import '../Styles/sass/eventlist.sass';
+import Event from './Event';
 
-const EventList = () => {
+
+
+const EventList = (props) => {
+
+    const events = props.events.map(event => <Event key={props.id} event={event}/>)
     return ( 
-        <div className="eventlist">Lista wydarzeń</div>
+        <div className="eventlist">
+            {events}
+        </div>
      );
 }
  

@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,GAAG,AAAA,UAAU,AAAC,CACV,gBAAgB,CAAE,GAAG,CAAG",
+    "mappings": "AAAA,AAAA,GAAG,AAAA,UAAU,AAAC,CACV,gBAAgB,CAAE,OAAO,CAAG",
     "sources": [
         "../sass/eventlist.sass"
     ],
