@@ -5,7 +5,7 @@ import Header from './Header';
 import Filters from './Filters';
 import EventList from './EventList';
 import Footer from './Footer';
-// import SimpleMap from './Map'
+import SimpleMap from './Map'
 
 class App extends Component {
   render() {
@@ -23,7 +23,7 @@ class App extends Component {
               <EventList />
             </div>
             <div className="main-map">
-              {/* <SimpleMap /> */}
+              <SimpleMap />
             </div>
           </main>
         </div>
