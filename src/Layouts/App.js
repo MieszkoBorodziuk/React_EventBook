@@ -3,10 +3,8 @@ import { BrowserRouter as Router,} from 'react-router-dom';
 import '../Styles/sass/App.sass';
 import Header from './Header';
 import Filters from './Filters';
-import EventList from './EventList';
 import Footer from './Footer';
 import SimpleMap from './Map'
-import AddEvent from './AddEvent';
 import Page from '../Layouts/Page'
 
 

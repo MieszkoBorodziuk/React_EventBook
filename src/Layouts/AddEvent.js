@@ -52,17 +52,34 @@ class AddEvent extends Component {
 
     render() {
         return (
-            <div className="addevent-contener">
-                <input placeholder="Nazwa wydarzenia" value={this.state.value} onChange={this.handleChange}></input>
-                <input type="checkbox" checked={this.state.checked} id="public" onChange={this.handleChange}></input>
-                <label htmlFor="public">Publiczne</label>
-                <label htmlFor="date">Data wydarzenia</label>
-                <input type="date" value={this.state.date} min={this.state.date} onChange={this.handleChange}></input>
-                <label htmlFor="time" >Godzina rozpoczecia</label>
-                <input type="time" value={this.state.time} onChange={this.handleChange}></input>
-                <label htmlFor="lokazlization">Miejsce wydarzenia</label>
-                <input type="lokalization"></input>
-                <button onClick={this.handleClick}>Dodaj</button>
+            <div className="addevent-Bcontainer">
+                <h2 className="addevent_title">Utwórz nowe Wydarzenie</h2>
+                <div className="addevent_image">Rysunek</div>
+                <div className="addevent-Scontainer">
+                    <label>Dodaj zdjęcie</label>
+                    <input type="file" name="addevent_addimage_btn"></input>
+                    <label>Nazwa wydarzenia</label>
+                    <input placeholder="Nazwa wydarzenia" value={this.state.value} onChange={this.handleChange}></input>
+                    <label htmlFor="date">Data rozpeczecia</label>
+                    <input type="date" value={this.state.date} min={this.state.date} onChange={this.handleChange}></input>
+                    <label htmlFor="time" >Godzina rozpoczecia</label>
+                    <input type="time" value={this.state.time} onChange={this.handleChange}></input>
+                    <label htmlFor="date">Data zakaczenia</label>
+                    <input type="date" value={this.state.date} min={this.state.date} onChange={this.handleChange}></input>
+                    <label htmlFor="time" >Godzina zakaczenia</label>
+                    <input type="time" value={this.state.time} onChange={this.handleChange}></input>
+                    <label htmlFor="lokazlization">Miejsce wydarzenia</label>
+                    <input type="lokalization"></input>
+                    <label htmlFor="public">Publiczne</label>
+                    <input type="checkbox" checked={this.state.checked} id="public" onChange={this.handleChange}></input>
+                    <div className="addevent_type">
+                        <div>rozrywka</div>
+                        <div>sport</div>
+                        <div>podróze</div>
+                        <div>gry</div>
+                    </div>
+                    <button className="confirm_addevent_btn" onClick={this.handleClick}>Dodaj</button>
+                </div>
             </div>
         );
     }
