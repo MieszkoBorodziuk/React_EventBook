@@ -8,10 +8,10 @@ const Header = () => {
             <div className="logo">
                 <img src={logo} alt="logo"/>
             </div>
-            <div>jakiś napis</div>
-            <div>Menu</div>
-            <div>Zaloguj sie</div>
-            <div>Ustaweinia</div>
+            <div className="navigation-container">
+            <button className="add_event_btn">Dodaj Event</button>
+            <button className="account_btn">Moje konto</button>
+            </div>
         </div>
     );
 }

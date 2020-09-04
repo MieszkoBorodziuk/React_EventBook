@@ -13,6 +13,7 @@ const EventList = (props) => {
 
     return (
         <div className="eventlist">
+            <h3 className="eventlist_title">Lista wydarzeń</h3>
             {events}
         </div>
     );

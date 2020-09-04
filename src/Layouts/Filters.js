@@ -43,7 +43,7 @@ const Filters = () => {
 
         <div className="filters">
             <div className="search-container">
-                <input className="search" placeholder="wyszukaj"></input>
+                <input className="search" placeholder="Wyszukaj"></input>
                 <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
                     <path fillRule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
@@ -58,9 +58,9 @@ const Filters = () => {
             <div className="event_type-container">
                 {Icon}
             </div>
-            <div className="filters-container">
-                <svg className="filters_logo" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"></path></svg>
-                <button className="filters">Filtry</button>
+            <div className="filters-container_btn">
+                <svg className="filters_logo_btn" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"></path></svg>
+                <button className="filters_btn">Filtry</button>
 
             </div>
 

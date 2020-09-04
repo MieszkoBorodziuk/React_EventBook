@@ -2,6 +2,7 @@ div.filters
     display: flex
     background-color: #fff
     height: 60px
+    box-shadow: 0px 2px 20px 7px #1f70af61
 
 .search-container
     position: relative
@@ -12,25 +13,32 @@ div.filters
     align-items: center
     justify-content: center
     .search
+        display: block
         height: 30px
-        margin: 0
         padding-left: 40px
         width: 100
+        color: #37a4ec
         min-width: 110px
-        text-transform: none
-        font-weight: 600
         border-radius: 20px
         border: none
-        background-color: #e2dada
+        background-color: #e9e9e9
+        text-color:#fff
+    .search::placeholder
+        color: #37a4ec 
     .search:hover
-        background-color: #bebebe
+        background-color: #c9e6f8
         transition: 0.7s
+        transform: translateX(100px)
+        min-width: 310px
+        
+            
     .search:nth-child(1)
         outline: 0
+        
     svg
         position: absolute
         right: 120px
-        color: #494545
+        color: #37a4ec
         align-items: center
         justify-content: center
 
@@ -40,18 +48,21 @@ div.filters
     align-items: center
     justify-content: center
 .localization
-    color: rgb(119, 119, 119)
+    color: #37a4ec
     height: 30px
     width: 100%
     border-radius: 20px
+    border-color: #37a4ec
     text-transform: none
     font-weight: 600
     min-width: 110px
     padding-left: 10px
 .localization:hover
-    background-color: #bebebe
+    background-color: #37a4ec
     transition: 0.7s 
-    color: #424242
+    color: #fff
+    border: none 
+    transition: 1s
 .localization:nth-child(1)
         outline: 0
 
@@ -61,14 +72,14 @@ div.filters
     align-items: center
     justify-content: center
 
-.filters-container
+.filters-container_btn
     width: 120px
     display: flex
     align-items: center
     justify-content: center
     padding-right: 15px
-    .filters
-        color: rgb(119, 119, 119)
+    .filters_btn
+        color: #37a4ec
         height: 30px
         width: 100%
         border-radius: 20px
@@ -77,14 +88,14 @@ div.filters
         font-weight: 600
         min-width: 110px
         padding-left: 30px
-    .filters:hover
-        background-color: #bebebe
+        outline: 0
+    .filters_btn:hover
+        background-color: #e3f1fa
         transition: 0.7s 
-        color: #424242
-    .filters:nth-child(1)
+    .filters_btn:nth-child(1)
             outline: 0
     svg
-        fill: rgb(107, 102, 102)
+        fill: #37a4ec
         height: 20px
         position: absolute
         right: 90px

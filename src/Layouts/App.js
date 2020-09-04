@@ -74,13 +74,16 @@ class App extends Component {
           <header>
             <Header />
           </header>
-          <div>
+          <div className="filter-app">
             <Filters />
           </div>
           <main>
-            <div className="main-eventlist">
-              <EventList events={this.state.events} />
-              <AddEvent add={this.addEvent} />
+            <div className="pages">
+              <Page/>
+              <div className="main-eventlist">
+                <EventList events={this.state.events} />
+                <AddEvent add={this.addEvent} />
+              </div>
             </div>
             <div className="main-map">
               <SimpleMap />
