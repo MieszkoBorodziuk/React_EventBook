@@ -6,12 +6,16 @@ import Event from './Event';
 
 const EventList = (props) => {
 
-    const events = props.events.map(event => <Event key={props.id} event={event}/>)
-    return ( 
+    props.events.sort((a, b) => {
+        return ((new Date(a.date).getTime() + parseInt(a.time.replace(":", "")))) - ((new Date(b.date).getTime() + parseInt(b.time.replace(":", ""))))
+    });
+    const events = props.events.map(event => <Event key={event.id} event={event} />);
+
+    return (
         <div className="eventlist">
             {events}
         </div>
-     );
+    );
 }
- 
+
 export default EventList;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import ApiKey from '../data/Key'
- 
+
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
- 
+
 class SimpleMap extends Component {
   static defaultProps = {
     center: {
@@ -12,7 +12,7 @@ class SimpleMap extends Component {
     },
     zoom: 12
   };
- 
+
   render() {
     return (
       // Important! Always set the container height explicitly
@@ -32,5 +32,5 @@ class SimpleMap extends Component {
     );
   }
 }
- 
+
 export default SimpleMap;
