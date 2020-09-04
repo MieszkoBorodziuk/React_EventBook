@@ -5,7 +5,6 @@ import Event from './Event';
 
 
 const EventList = (props) => {
-
     props.events.sort((a, b) => {
         return ((new Date(a.date).getTime() + parseInt(a.time.replace(":", "")))) - ((new Date(b.date).getTime() + parseInt(b.time.replace(":", ""))))
     });

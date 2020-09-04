@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router,} from 'react-router-dom';
 import '../Styles/sass/App.sass';
 import Header from './Header';
 import Filters from './Filters';
@@ -7,6 +7,7 @@ import EventList from './EventList';
 import Footer from './Footer';
 import SimpleMap from './Map'
 import AddEvent from './AddEvent';
+import Page from '../Layouts/Page'
 
 
 
@@ -78,12 +79,8 @@ class App extends Component {
             <Filters />
           </div>
           <main>
-            <div className="pages">
-              <Page/>
-              <div className="main-eventlist">
-                <EventList events={this.state.events} />
-                <AddEvent add={this.addEvent} />
-              </div>
+            <div className="main-eventlist">
+              <Page events={this.state.events} add={this.addEvent} />
             </div>
             <div className="main-map">
               <SimpleMap />

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import '../Styles/sass/addevent.sass'
+import '../Styles/sass/addevent.sass';
+
+
+
 class AddEvent extends Component {
     state = {
         value: '',
@@ -43,8 +46,8 @@ class AddEvent extends Component {
                 date: new Date().toISOString().slice(0, 10),
                 time: new Date().toISOString().slice(11, 8),
             })
-        }else 
-        alert("Uzupelnij pola");
+        } else
+            alert("Uzupelnij pola");
     }
 
     render() {

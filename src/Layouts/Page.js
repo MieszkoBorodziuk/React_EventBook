@@ -1,21 +1,27 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-
-import AddEventPage from '../Pages/AddEventPage'
-import EventListPage from '../Pages/AddEventPage'
-import ErrorPage from '../Pages/AddEventPage'
+import { Route, Switch, NavLink } from 'react-router-dom';
+import AddEvent from './AddEvent';
+import EventList from './EventList';
 
 
-const Page = () => {
+
+
+const Page = (props) => {
+    const events = props.events;
+    const add = props.add;
     return (
         <>
             <Switch>
-                <Route path="/" exact component={AddEventPage} />
-                <Route path="/eventlist" component={EventListPage} />
-                <Route component={ErrorPage} />
+                <Route path="/" exact render={props =>
+                    (<EventList {...props} events={events} />)
+                } />
+                <Route path="/addevent" render={props =>
+                    (<AddEvent {...props} add={add} />)
+                } />
             </Switch>
         </>
     );
 }
 
-export default Page; 
+export default Page;
+
