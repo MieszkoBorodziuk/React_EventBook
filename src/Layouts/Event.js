@@ -16,7 +16,13 @@ const Event = (props) => {
                     <div className="event_information_date">{date}</div>
                 </div>
             </div>
-
+            <div className="event_moreinformation">
+            <button className="event_moreinformation_detail_btn">Więcej</button>
+            <div className="event_moreinformation_label">Weźmiesz udział:</div>
+            <button>Tak</button>
+            <button>Może</button>
+            <button>Nie</button>
+            </div>
         </div>
     );
 }
