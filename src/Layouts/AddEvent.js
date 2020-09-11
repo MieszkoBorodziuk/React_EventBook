@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/sass/addevent.sass';
-
+import SearchBox from '../Layouts/SearchBox'
 
 
 class AddEvent extends Component {
@@ -9,6 +9,8 @@ class AddEvent extends Component {
         checked: true,
         date: new Date().toISOString().slice(0, 10),
         time: new Date().toISOString().slice(11, 8),
+        places: [],
+
     }
 
     handleChange = (e) => {
@@ -36,6 +38,8 @@ class AddEvent extends Component {
         }
     }
 
+
+
     handleClick = () => {
         const { value, checked, date, time } = this.state;
         if (value.length && date.length && time.length > 0) {
@@ -48,6 +52,13 @@ class AddEvent extends Component {
             })
         } else
             alert("Uzupelnij pola");
+
+    }
+    handleAddPlaces = (placesX, placesY) => {
+        this.setState({
+            places: [placesX, placesY]
+        })
+        this.props.addPlaces(this.state.places);
     }
 
     render() {
@@ -69,7 +80,7 @@ class AddEvent extends Component {
                     <label htmlFor="time" >Godzina zakaczenia</label>
                     <input type="time" value={this.state.time} onChange={this.handleChange}></input>
                     <label htmlFor="lokazlization">Miejsce wydarzenia</label>
-                    <input type="lokalization"></input>
+                    <SearchBox addPlaces={this.handleAddPlaces} />
                     <label htmlFor="public">Publiczne</label>
                     <input type="checkbox" checked={this.state.checked} id="public" onChange={this.handleChange}></input>
                     <div className="addevent_type">

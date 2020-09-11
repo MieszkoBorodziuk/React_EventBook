@@ -1,36 +1,32 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
-import ApiKey from '../data/Key'
+import React from 'react';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-class SimpleMap extends Component {
-  static defaultProps = {
-    center: {
-      lat: 52.229675,
-      lng: 21.012230
-    },
-    zoom: 12
-  };
+const { compose } = require("recompose");
+const {
+    withScriptjs,
+    withGoogleMap,
+    GoogleMap,
+    Marker,
+} = require("react-google-maps");
 
-  render() {
+const MapWithAMarker = compose(
+    withScriptjs,
+    withGoogleMap
+)(props => {
     return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: ApiKey}}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+        <GoogleMap
+            center={{ lat: props.markerCordinates[0], lng: props.markerCordinates[1] }}
+            defaultZoom={11}
         >
-          <AnyReactComponent
-            lat={52.229675}
-            lng={21.012230}
-            text="My Marker"
-          />
-        </GoogleMapReact>
-      </div>
-    );
-  }
+            <Marker
+                position={{ lat: -34.397, lng: 151 }}
+            />
+        </GoogleMap>
+    )
 }
+);
 
-export default SimpleMap;
+export default MapWithAMarker
+
+
+

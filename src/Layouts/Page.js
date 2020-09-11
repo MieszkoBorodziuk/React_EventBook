@@ -9,6 +9,8 @@ import EventList from './EventList';
 const Page = (props) => {
     const events = props.events;
     const add = props.add;
+    const addPlaces = props.addPlaces;
+
     return (
         <>
             <Switch>
@@ -16,7 +18,7 @@ const Page = (props) => {
                     (<EventList {...props} events={events} />)
                 } />
                 <Route path="/addevent" render={props =>
-                    (<AddEvent {...props} add={add} />)
+                    (<AddEvent {...props} add={add} addPlaces={addPlaces}/>)
                 } />
             </Switch>
         </>
