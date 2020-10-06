@@ -1,0 +1,56 @@
+.loginForm-modal {
+    position: fixed;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+
+    &::backdrop {
+        backdrop-filter: blur(1px); 
+        background: rgba(0, 0, 0, 0.3);
+    }
+}
+.account-list-modal{
+    top: 0%;
+    min-width: 256.5px;
+    flex-direction: column;
+    position: fixed;
+    margin-left: auto;
+    margin-right: 0;
+    transform: translateY(3rem);
+    text-align: center;
+    border: 1px solid #b1b3b3;
+    border-top: none;
+    z-index: 100;
+    padding: 0;
+    .header_account-list_loginBtn{
+            width: 10rem;
+            height: 1.7rem;
+            background-color: #fff;
+            color: #37a4ec;
+            outline: 0;
+            border: 1px solid #37a4ec;
+            font-weight: 600;
+            margin: 10px;
+    }
+        .header_account-list_loginBtn:hover{
+            color: #fff;
+            background-color: #37a4ec;
+            transition: 0.5s;
+        }
+    .header_account-list_newAccountBtn{
+        border-top: 1px solid #b1b3b3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.8rem;
+    }
+        
+
+    &::backdrop {
+        background: rgba(0, 0, 0, 0.1);
+    }
+}
+
+        
+       

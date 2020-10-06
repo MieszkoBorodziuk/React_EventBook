@@ -1,0 +1,19 @@
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+    .row{
+        margin-top: 10px;
+        display: flex;
+        justify-content: flex-end;
+        width: auto;
+    }
+.loginForm__Btn{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    
+
+    
