@@ -25,18 +25,20 @@ class App extends Component {
           events: data,
         })
       })
-  }
+  };
 
 
 
-  addEvent = (name, date, time, pub) => {
+
+  addEvent = (name, date, time, location,marker, pub) => {
     const event =
     {
       id: this.counter,
       name,
       date,
       time,
-      location: 'Warszawa',
+      location: location,
+      marker: this.state.places,
       public: pub,
     }
     this.counter++;

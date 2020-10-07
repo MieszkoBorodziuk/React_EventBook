@@ -4,6 +4,7 @@ import '../Styles/sass/event.sass';
 const Event = (props) => {
 
     const { name, location, time, date } = props.event;
+    
 
     return (
         <div className="event-container">

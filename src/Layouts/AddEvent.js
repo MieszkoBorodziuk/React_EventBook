@@ -10,7 +10,7 @@ class AddEvent extends Component {
         date: new Date().toISOString().slice(0, 10),
         time: new Date().toISOString().slice(11, 8),
         places: [],
-
+        city: '',
     }
 
     handleChange = (e) => {
@@ -35,33 +35,39 @@ class AddEvent extends Component {
                 time: e.target.value
             }
             )
+        }else {
+            console.log(e.target.value)
         }
     }
 
 
 
     handleClick = () => {
-        const { value, checked, date, time } = this.state;
+        const { value, checked, date, time, city } = this.state;
         if (value.length && date.length && time.length > 0) {
-            this.props.add(value, date, time, checked);
             this.setState({
                 value: '',
                 checked: true,
                 date: new Date().toISOString().slice(0, 10),
                 time: new Date().toISOString().slice(11, 8),
+                marker: this.state.places,
             })
+            this.props.add(value, date, time, city, checked );
         } else
             alert("Uzupelnij pola");
 
     }
-    handleAddPlaces = (placesX, placesY) => {
+    handleAddPlaces = (placesX, placesY, places) => {
         this.setState({
-            places: [placesX, placesY]
+            places: [placesX, placesY],
+            city: places.vicinity,
         })
         this.props.addPlaces(this.state.places);
     }
+    
 
     render() {
+        
         return (
             <div className="addevent-Bcontainer">
                 <h2 className="addevent_title">Utwórz nowe Wydarzenie</h2>

@@ -11,6 +11,7 @@ class  EventAPI {
               time: '18:00',
               location: 'Warszawa',
               public: true,
+              marker: [52.229675, 21.022230],
             },
             {
               id: 1,
@@ -19,6 +20,7 @@ class  EventAPI {
               time: '12:00',
               location: 'Trojmiasto',
               public: true,
+              marker: [52.229675, 21.032230],
             },
             {
               id: 2,
@@ -27,6 +29,7 @@ class  EventAPI {
               time: '20:00',
               location: 'Warszawa',
               public: true,
+              marker: [52.229675, 21.042230],
             },
             {
               id: 3,
@@ -35,6 +38,7 @@ class  EventAPI {
               time: "21:00",
               location: 'Warszawa',
               public: true,
+              marker: [52.229675, 21.062230],
             },
         ])))
     }

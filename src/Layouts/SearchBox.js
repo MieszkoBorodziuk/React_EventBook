@@ -26,8 +26,10 @@ const SearchBox = compose(
           const places = refs.searchBox.getPlaces();
           this.setState({
             places,
+            
           });
-          this.props.addPlaces(places[0].geometry.location.lat(),places[0].geometry.location.lng());
+          this.props.addPlaces(places[0].geometry.location.lat(),places[0].geometry.location.lng(),places[0]);
+          
         },
       })
     },
