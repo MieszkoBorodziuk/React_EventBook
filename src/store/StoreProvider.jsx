@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
-import EventAPI from '../API/EventAPI';
+import request from '../helpers/request';
 
 export const StoreContext = createContext(null);
 
@@ -11,11 +11,12 @@ const StoreProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
     const fetchData = async () => {
-        EventAPI.getEvents()
-            .then(data => {
-                setEvents(data)
-            })
+        const { data } = await request.get('/courses');
+
+        setEvents(data.courses);
     };
+
+
 
     useEffect(() => {
         fetchData();

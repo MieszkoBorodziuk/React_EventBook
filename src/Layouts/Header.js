@@ -11,14 +11,21 @@ import Modal from '../components/Modal/Modal';
 const Header = () => {
     const [isModalOpenLoginForm, setisModalOpenLoginForm] = useState(false);
     const [isModalOpenAccountList, setisModalOpenAccountList] = useState(false);
+    const [isActiveAddEvent, setIsActiveAddEvent] = useState(false);
     const { user, setUser } = useContext(StoreContext);
 
-
+   
     const handleOnClose = () => {
         setisModalOpenAccountList(false);
         setisModalOpenLoginForm(false);
     }
-    
+
+    const handleOnClikcLogoAddEventBtn = () => {
+        setIsActiveAddEvent(!isActiveAddEvent);
+    }
+    const handleOnClikcLogo = () => {
+        setIsActiveAddEvent(false);
+    }
 
 
     const handleOnClick = () => {
@@ -39,10 +46,10 @@ const Header = () => {
         <>
             <div className="header">
                 <div className="logo">
-                    <NavLink to="/"><img src={logo} alt="logo" /></NavLink>
+                    <NavLink onClick={handleOnClikcLogo} to="/"><img src={logo} alt="logo" /></NavLink>
                 </div>
                 <div className="navigation-container">
-                    <NavLink to="/addevent"><button className="add_event_btn">Dodaj Event</button></NavLink>
+                    <NavLink onClick={handleOnClikcLogoAddEventBtn} to={isActiveAddEvent ? "/" : "/addevent"}><button className="add_event_btn">{isActiveAddEvent ? "Lista Eventow" : "Dodaj Event"}</button></NavLink>
                     <button onClick={handlerShowAccountList} className="account_btn">Moje konto</button>
                 </div>
                 <Modal handleOnClose={handleOnClose} isOpen={isModalOpenAccountList} sholudBeCloseOnOutsideClick={true} className="account-list-modal">

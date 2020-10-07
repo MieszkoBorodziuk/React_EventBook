@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
+import request from '../../helpers/request';
 import { StoreContext } from '../../store/StoreProvider';
 import Modal from '../Modal/Modal';
 import './LoginForm.css';
@@ -9,6 +10,7 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [validateMessage, setValidateMessage] = useState('');
+    const { setUser } = useContext(StoreContext);
 
     const handleOnChangeLogin = event => setLogin(event.target.value);
     const handleOnChangePassword = event => setPassword(event.target.value);
@@ -17,13 +19,29 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
         handleOnClose();
     };
 
-    //strzał do api (do Uzupełnienia jak bedzie serwer)
-    const handleOnSubmit = async event => {
-        event.preventDefault();
-        
+    const resetStateOFInputs = () => {
+        setLogin('');
+        setPassword('');
+        setValidateMessage('');
     }
 
-    const { setUser } = useContext(StoreContext);
+    const handleOnSubmit = async event => {
+        event.preventDefault();
+        const { data, status } = await request.post(
+            '/users', 
+            { login, password }
+        );
+        if (status === 200) {
+            setUser(data.user);
+            resetStateOFInputs();
+            handleOnClose();
+        } else {
+            setValidateMessage(data.message);
+        }
+    }
+
+   
+
 
     const validateMessageComponent = validateMessage.length ? <p>{validateMessage}</p> : null;
 
