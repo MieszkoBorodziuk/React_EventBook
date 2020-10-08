@@ -5,7 +5,6 @@ import Header from './Header';
 import Filters from './Filters';
 import Footer from './Footer';
 import Page from '../Layouts/Page';
-import EventAPI from '../API/EventAPI';
 import Map from './Map';
 import ApiKey from '../data/Key';
 import StoreProvider from '../store/StoreProvider';
@@ -18,16 +17,18 @@ class App extends Component {
     places: [52.229675, 21.012230]
   }
 
-  componentDidMount() {
-    EventAPI.getEvents()
-      .then(data => {
-        this.setState({
-          events: data,
-        })
-      })
-  };
+  // componentDidMount() {
+  //   EventAPI.getEvents()
+  //     .then(data => {
+  //       this.setState({
+  //         events: data,
+  //       })
+  //     })
+  // };
 
 
+  
+  
 
 
   addEvent = (name, date, time, location,marker, pub) => {
@@ -46,6 +47,7 @@ class App extends Component {
     this.setState(prevState => ({
       events: [...prevState.events, event]
     }))
+    
   }
 
   addPlaces = (places) => {
