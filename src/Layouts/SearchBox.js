@@ -28,7 +28,7 @@ const SearchBox = compose(
             places,
             
           });
-          this.props.addPlaces(places[0].geometry.location.lat(),places[0].geometry.location.lng(),places[0]);
+          this.props.changeLocalization(places);
           
         },
       })

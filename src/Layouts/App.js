@@ -1,62 +1,18 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, } from 'react-router-dom';
-import '../Styles/sass/App.sass';
+import StoreProvider from '../store/StoreProvider';
+import ApiKey from '../data/Key';
 import Header from './Header';
 import Filters from './Filters';
-import Footer from './Footer';
 import Page from '../Layouts/Page';
 import Map from './Map';
-import ApiKey from '../data/Key';
-import StoreProvider from '../store/StoreProvider';
+import Footer from './Footer';
+
+import '../Styles/sass/App.sass';
+
 
 
 class App extends Component {
-  counter = 4
-  state = {
-    events: [],
-    places: [52.229675, 21.012230]
-  }
-
-  // componentDidMount() {
-  //   EventAPI.getEvents()
-  //     .then(data => {
-  //       this.setState({
-  //         events: data,
-  //       })
-  //     })
-  // };
-
-
-  
-  
-
-
-  addEvent = (name, date, time, location,marker, pub) => {
-    const event =
-    {
-      id: this.counter,
-      name,
-      date,
-      time,
-      location: location,
-      marker: this.state.places,
-      public: pub,
-    }
-    this.counter++;
-
-    this.setState(prevState => ({
-      events: [...prevState.events, event]
-    }))
-    
-  }
-
-  addPlaces = (places) => {
-    this.setState({
-      places: places
-    })
-  }
-
-
 
   render() {
     return (
@@ -71,13 +27,13 @@ class App extends Component {
             </div>
             <main>
               <div className="main-eventlist">
-                <Page events={this.state.events} add={this.addEvent} addPlaces={this.addPlaces} />
+                <Page />
               </div>
               <div className="main-map">
-                <Map markerCordinates={this.state.places}
+                <Map
                   googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${ApiKey}&v=3.exp&libraries=geometry,drawing,places`}
                   loadingElement={<div style={{ height: `100%` }} />}
-                  containerElement={<div style={{ height: `100%` }} />} ś
+                  containerElement={<div style={{ height: `100%` }} />}
                   mapElement={<div style={{ height: `100%` }} />}
                 />
               </div>

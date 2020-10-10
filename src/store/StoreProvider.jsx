@@ -9,6 +9,8 @@ export const StoreContext = createContext(null);
 const StoreProvider = ({ children }) => {
     const [events, setEvents] = useState([]);
     const [user, setUser] = useState(null);
+    const [activeMarkerCordinates, setActiveMarkerCordinates] = useState([52.229675, 21.012230]);
+    const [isEditMode, setIsEditMode] = useState();
 
     const fetchData = async () => {
         const { data } = await request.get('/courses');
@@ -27,7 +29,11 @@ const StoreProvider = ({ children }) => {
             events,
             setEvents,
             user,
-            setUser
+            setUser,
+            activeMarkerCordinates,
+            setActiveMarkerCordinates,
+            isEditMode,
+            setIsEditMode
         }}>
             {children}
         </StoreContext.Provider>

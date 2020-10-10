@@ -3,14 +3,15 @@ import request from '../helpers/request';
 import { useContext } from 'react';
 import { StoreContext } from '../store/StoreProvider';
 import '../Styles/sass/event.sass';
+import { NavLink } from 'react-router-dom';
 
 const Event = (props) => {
 
-    const { name, location, time, date, id } = props.event;
-    const { setEvents } = useContext(StoreContext);
+    const { title, location, time, date, id } = props.event;
+    const { setEvents, setIsEditMode } = useContext(StoreContext);
 
     const handleDeleteEvent = async () => {
-        
+
         try {
             const { status } = await request.delete(`/courses/${id}`);
 
@@ -20,25 +21,27 @@ const Event = (props) => {
         } catch (error) {
             console.warn(error);
         }
-    }
-    
+    };
+
+    const handleEditEvent = () => {
+        setIsEditMode(props);
+
+    };
 
     return (
         <article className="event-container">
             <div className="event">
                 <div className="event_logo">Logo</div>
                 <div className="event_information">
-                    <div className="event_information_name">{name}</div>
+                    <div className="event_information_name">{title}</div>
                     <div className="event_information_location">{location}</div>
                     <div className="event_information_time">{time}</div>
                     <div className="event_information_date">{date}</div>
-                    <button>Edytuj</button>
+                    <NavLink to={"/addevent"} onClick={handleEditEvent}><button> Edytuj </button></NavLink>
+                    <button onClick={handleDeleteEvent}>Usun</button>
                 </div>
             </div>
             <div className="event_moreinformation">
-                <button className="event_moreinformation_detail_btn">Więcej</button>
-               
-                
                 <div className="event_moreinformation_label">Weźmiesz udział:</div>
                 <button>Tak</button>
                 <button>Może</button>
