@@ -17,7 +17,7 @@ export const EventList = () => {
     return (
         <section className="eventlist">
             <h3 className="eventlist_title">Lista wydarzeń</h3>
-            {eventsElements.slice(0, 7)}
+            {eventsElements}
         </section>
     );
 }
