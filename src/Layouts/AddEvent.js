@@ -6,27 +6,27 @@ import { StoreContext } from '../store/StoreProvider';
 import { useContext } from 'react';
 
 const AddEvent = () => {
-    const { events, setEvents, setActiveMarkerCordinates, isEditMode, setIsEditMode } = useContext(StoreContext);
-    
+    const { user, setUser, events, setEvents, setActiveMarkerCordinates, isEditMode, setIsEditMode } = useContext(StoreContext);
+
     const [title, setTitle] = useState('');
     // const [isPublic, setIsPublic] = useState(true);
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
     const [time, setTime] = useState(new Date().toISOString().slice(11, 8));
     const [localization, setLocalization] = useState();
     const [id, setId] = useState();
-    
+
     useEffect(() => {
-        if(isEditMode !== undefined){
+        if (isEditMode !== undefined) {
             setTitle(isEditMode.event.title);
             setDate(isEditMode.event.date);
             setTime(isEditMode.event.time);
-            setActiveMarkerCordinates([isEditMode.event.localization[0].geometry.location.lat,isEditMode.event.localization[0].geometry.location.lng]);
+            setActiveMarkerCordinates([isEditMode.event.localization[0].geometry.location.lat, isEditMode.event.localization[0].geometry.location.lng]);
             setLocalization(isEditMode.event.localization);
             setId(isEditMode.event.id)
-        }   
-    }, [isEditMode, events,setActiveMarkerCordinates]);
+        }
+    }, [isEditMode, events, setActiveMarkerCordinates]);
 
-    
+
     const handleChange = (e) => {
         if (e.target.type === "text") {
             setTitle(e.target.value)
@@ -46,7 +46,7 @@ const AddEvent = () => {
 
 
 
-    const handleClick = async () => {
+    const handleOnClick = async () => {
         const eventObject = {
             title,
             id,
@@ -63,10 +63,26 @@ const AddEvent = () => {
             const { data, status } = await request.post('/courses', eventObject);
             if (status === 201) {
                 setEvents(data.courses);
+                const number = data.courses.length - 1;
+                assigmentEventToUser(data.courses[number].id)
+                console.log(data.courses[number].id)
             }
         }
         setIsEditMode(undefined);
     };
+
+    const assigmentEventToUser = async (courseId) => {
+        try {
+            const { data, status } = await request.patch('/users', { login: user.login, courseId: courseId });
+
+            if (status === 202) {
+                setUser(data.user)
+            }
+
+        } catch (error) {
+            console.warn(error);
+        }
+    }
 
 
 
@@ -97,7 +113,7 @@ const AddEvent = () => {
                     <div>podróze</div>
                     <div>gry</div>
                 </div> */}
-                <button className="confirm_addevent_btn" onClick={handleClick}>Dodaj</button>
+                <button className="confirm_addevent_btn" onClick={handleOnClick}>Dodaj</button>
             </div>
         </div>
     );

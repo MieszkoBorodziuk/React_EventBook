@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect, Route, Switch,} from 'react-router-dom';
 import AddEvent from './AddEvent';
 import EventList from './EventList';
+import UserEvents from './UserEvents';
 
 
 const Page = () => {
@@ -13,6 +14,9 @@ const Page = () => {
                 } />
                 <Route path="/addevent" render={() =>
                     <AddEvent/>
+                } />
+                <Route path="/userevent" render={() =>
+                    <UserEvents/>
                 } />
                 <Redirect to = "/"/>
             </Switch>

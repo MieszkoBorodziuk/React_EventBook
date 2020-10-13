@@ -5,18 +5,19 @@ import Event from './Event';
 import '../Styles/sass/eventlist.sass';
 
 
-const EventList = () => {
+export const EventList = () => {
     const { events } = useContext(StoreContext);
-    
+
     events.sort((a, b) => {
         return ((new Date(a.date).getTime() + parseInt(a.time.replace(":", "")))) - ((new Date(b.date).getTime() + parseInt(b.time.replace(":", ""))))
     });
+
     const eventsElements = events.map(event => <Event key={event.id} event={event} />);
 
     return (
         <section className="eventlist">
             <h3 className="eventlist_title">Lista wydarzeń</h3>
-            {eventsElements}
+            {eventsElements.slice(0, 7)}
         </section>
     );
 }

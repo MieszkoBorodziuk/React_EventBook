@@ -12,7 +12,7 @@ const Header = () => {
     const [isModalOpenLoginForm, setisModalOpenLoginForm] = useState(false);
     const [isModalOpenAccountList, setisModalOpenAccountList] = useState(false);
     const [isActiveAddEvent, setIsActiveAddEvent] = useState(false);
-    const { user, setUser, setIsEditMode,isEditMode } = useContext(StoreContext);
+    const { user, setUser, setIsEditMode } = useContext(StoreContext);
 
     const handlerShowAccountList = () => {
         setisModalOpenAccountList(true);
@@ -31,7 +31,7 @@ const Header = () => {
         setIsActiveAddEvent(false);
     };
 
-    
+
 
     const handleOnClick = () => {
         if (Boolean(user)) {
@@ -43,7 +43,7 @@ const Header = () => {
 
     const setProperlyLabel = Boolean(user) ? 'Log out' : 'Log in'
 
-    
+
 
     return (
         <>
@@ -52,7 +52,10 @@ const Header = () => {
                     <NavLink onClick={handleOnClikcLogo} to="/"><img src={logo} alt="logo" /></NavLink>
                 </div>
                 <div className="navigation-container">
-                    <NavLink onClick={handleOnClickAddEventBtn} to={isActiveAddEvent ? "/" : "/addevent"}><button className="add_event_btn">{isActiveAddEvent ? "Lista Eventow" : "Dodaj Event"}</button></NavLink>
+                    {Boolean(user) ?
+                    [<NavLink to={"/userevent"}><button>Moje wydarzenia</button></NavLink>,
+                    <NavLink onClick={handleOnClickAddEventBtn} to={isActiveAddEvent ? "/" : "/addevent"}><button className="add_event_btn">{isActiveAddEvent ? "Lista Eventow" : "Dodaj Event"}</button></NavLink>]
+                    : null}
                     <button onClick={handlerShowAccountList} className="account_btn">Moje konto</button>
                 </div>
                 <Modal handleOnClose={handleOnClose} isOpen={isModalOpenAccountList} sholudBeCloseOnOutsideClick={true} className="account-list-modal">
