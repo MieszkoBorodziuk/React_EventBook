@@ -44,7 +44,6 @@ const Event = (props) => {
             default: return categroyImgParty
         }
     }
-    console.log(category)
     return (
 
         <article className="event-container">

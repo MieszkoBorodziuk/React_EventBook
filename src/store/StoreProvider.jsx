@@ -11,6 +11,9 @@ const StoreProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [activeMarkerCordinates, setActiveMarkerCordinates] = useState([52.229675, 21.012230]);
     const [isEditMode, setIsEditMode] = useState();
+    const [isCityFilterEvents, setIsCityFilterEvents] = useState();
+    const [isCategoryFilterEvents, setIsCategoryFilterEvents] = useState();
+
 
     const fetchData = async () => {
         const { data } = await request.get('/courses');
@@ -33,7 +36,11 @@ const StoreProvider = ({ children }) => {
             activeMarkerCordinates,
             setActiveMarkerCordinates,
             isEditMode,
-            setIsEditMode
+            setIsEditMode,
+            isCityFilterEvents,
+            setIsCityFilterEvents,
+            isCategoryFilterEvents,
+            setIsCategoryFilterEvents,
         }}>
             {children}
         </StoreContext.Provider>

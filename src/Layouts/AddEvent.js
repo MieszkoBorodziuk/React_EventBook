@@ -124,7 +124,7 @@ const AddEvent = () => {
                     <div className="addevent_type_category" onClick={handleCategorySelection}>sport</div>
                     <div className="addevent_type_category" onClick={handleCategorySelection}>podroze</div>
                     <div className="addevent_type_category" onClick={handleCategorySelection}>gry</div>
-                    <div className="addevent_type_category" onClick={handleCategorySelection}>inne</div>
+                    <div className="addevent_type_category" onClick={handleCategorySelection}>rozrywka</div>
                 </div>
                 <button className="addevent_submitBtn" onClick={handleOnClick}>Dodaj</button>
             </div>
