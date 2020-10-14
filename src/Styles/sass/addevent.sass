@@ -1,4 +1,4 @@
-.addevent-Bcontainer
+.addevent-container
     display: grid
     grid-auto-columns: minmax(120px, 80%)
     grid-template-rows: repeat(4, auto)
@@ -14,7 +14,7 @@
         text-align: center
         justify-content: center
         background-color: red
-    .addevent-Scontainer
+    .addevent
         text-align: start
         display: grid
         grid-template-columns: 1fr 1fr
@@ -23,7 +23,7 @@
         padding: 0 10% 0 10%
         input
             max-height: 30px
-        .confirm_addevent_btn
+        .addevent_submitBtn
             grid-column: 1/-1
             min-height: 25px
         .addevent_type
@@ -34,10 +34,13 @@
             grid-template-rows: 1fr 1fr
             
             min-height: 40px
-            div
+            .addevent_type_category
                 padding: 5px
                 background-color: #fff
                 cursor: pointer
+            .addevent_type_category--selected
+                background-color: #e25e5e
+            
             
     
        

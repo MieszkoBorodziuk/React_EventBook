@@ -41,7 +41,7 @@ const Header = () => {
         }
     };
 
-    const setProperlyLabel = Boolean(user) ? 'Log out' : 'Log in'
+    const setProperlyLabel = Boolean(user) ? 'Log out' : 'Log in';
 
 
 

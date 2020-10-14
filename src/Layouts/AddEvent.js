@@ -10,10 +10,12 @@ const AddEvent = () => {
 
     const [title, setTitle] = useState('');
     // const [isPublic, setIsPublic] = useState(true);
-    const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-    const [time, setTime] = useState(new Date().toISOString().slice(11, 8));
+    const [date, setDate] = useState([new Date().toISOString().slice(0, 10), new Date().toISOString().slice(0, 10)]);
+    const [time, setTime] = useState([new Date().toISOString().slice(11, 8), new Date().toISOString().slice(11, 8)]);
     const [localization, setLocalization] = useState();
     const [id, setId] = useState();
+    const [category, setCategory] = useState();
+
 
     useEffect(() => {
         if (isEditMode !== undefined) {
@@ -33,9 +35,16 @@ const AddEvent = () => {
             // } else if (e.target.type === "checkbox") {
             //     setIsPublic(!this.state.checked)
         } else if (e.target.type === "date") {
-            setDate(e.target.value)
+            setDate([e.target.value, date[1]])
         } else if (e.target.type === "time") {
-            setTime(e.target.value)
+            setTime([e.target.value, time[1]])
+        }
+    };
+    const handleChangeEnd = (e) => {
+        if (e.target.type === "date") {
+            setDate([date[0], e.target.value])
+        } else if (e.target.type === "time") {
+            setTime([time[0], e.target.value])
         }
     };
 
@@ -53,6 +62,7 @@ const AddEvent = () => {
             date,
             time,
             localization,
+            category,
         }
         if (isEditMode !== undefined) {
             const { data, status } = await request.put('/courses', eventObject);
@@ -65,7 +75,6 @@ const AddEvent = () => {
                 setEvents(data.courses);
                 const number = data.courses.length - 1;
                 assigmentEventToUser(data.courses[number].id)
-                console.log(data.courses[number].id)
             }
         }
         setIsEditMode(undefined);
@@ -84,36 +93,40 @@ const AddEvent = () => {
         }
     }
 
+    const handleCategorySelection = (e) => {
+        const x = document.querySelectorAll(".addevent_type_category--selected")
+        for (let index = 0; index < x.length; index++) {
+            x[index].className = "addevent_type_category";
+        }
+        e.target.className = "addevent_type_category--selected"
+        setCategory(e.target.innerText)
+    };
 
 
     return (
-        <div className="addevent-Bcontainer">
+        <div className="addevent-container">
             <h2 className="addevent_title">Utwórz nowe Wydarzenie</h2>
             <div className="addevent_image">Rysunek</div>
-            <div className="addevent-Scontainer">
-                <label>Dodaj zdjęcie</label>
-                <input type="file" name="addevent_addimage_btn"></input>
+            <div className="addevent">
                 <label>Nazwa wydarzenia</label>
                 <input placeholder="Nazwa wydarzenia" value={title} onChange={handleChange}></input>
-                <label htmlFor="date">Data rozpeczecia</label>
-                <input type="date" value={date} min={date} onChange={handleChange}></input>
+                <label htmlFor="date">Data rozpoczecia</label>
+                <input type="date" value={date[0]} min={date[0]} onChange={handleChange}></input>
                 <label htmlFor="time" >Godzina rozpoczecia</label>
-                <input type="time" value={time} onChange={handleChange}></input>
-                <label htmlFor="date">Data zakaczenia</label>
-                <input type="date" value={date} min={date} onChange={handleChange}></input>
-                <label htmlFor="time" >Godzina zakaczenia</label>
-                <input type="time" value={time} onChange={handleChange}></input>
+                <input type="time" value={time[0]} onChange={handleChange}></input>
+                <label htmlFor="date">Data zakonczenia</label>
+                <input type="date" value={date[1]} min={date[0]} onChange={handleChangeEnd}></input>
+                <label htmlFor="time" >Godzina zakonczenia</label>
+                <input type="time" value={time[1]} onChange={handleChangeEnd}></input>
                 <label htmlFor="lokazlization">Miejsce wydarzenia</label>
                 <SearchBox changeLocalization={handleChangeLocalization} />
-                {/* <label htmlFor="public">Publiczne</label>
-                <input type="checkbox" checked={isPublic} id="public" onChange={handleChange}></input>
                 <div className="addevent_type">
-                    <div>rozrywka</div>
-                    <div>sport</div>
-                    <div>podróze</div>
-                    <div>gry</div>
-                </div> */}
-                <button className="confirm_addevent_btn" onClick={handleOnClick}>Dodaj</button>
+                    <div className="addevent_type_category" onClick={handleCategorySelection}>sport</div>
+                    <div className="addevent_type_category" onClick={handleCategorySelection}>podroze</div>
+                    <div className="addevent_type_category" onClick={handleCategorySelection}>gry</div>
+                    <div className="addevent_type_category" onClick={handleCategorySelection}>inne</div>
+                </div>
+                <button className="addevent_submitBtn" onClick={handleOnClick}>Dodaj</button>
             </div>
         </div>
     );
