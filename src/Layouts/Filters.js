@@ -10,7 +10,7 @@ import '../Styles/sass/filters.sass';
 
 
 const Filters = () => {
-    const { setIsCityFilterEvents, setIsCategoryFilterEvents } = useContext(StoreContext);
+    const { setIsCityFilterEvents, setIsCategoryFilterEvents, setIsTitleFilterEvents } = useContext(StoreContext);
 
 
     const handleCityFilter = (e) => {
@@ -30,10 +30,13 @@ const Filters = () => {
         </div>
     ));
 
+    const handleNameFilter = (e) => {
+        setIsTitleFilterEvents(e.target.value)
+    }
     return (
         <div className="filters">
             <div className="search-container">
-                <input className="search" placeholder="Wyszukaj"></input>
+                <input className="search" placeholder="Wyszukaj" onChange={handleNameFilter}></input>
                 <img className="search_img" src={searchImg} alt="bi bi-search"></img>
             </div>
             <div className="localization-container">

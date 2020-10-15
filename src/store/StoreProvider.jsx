@@ -13,6 +13,8 @@ const StoreProvider = ({ children }) => {
     const [isEditMode, setIsEditMode] = useState();
     const [isCityFilterEvents, setIsCityFilterEvents] = useState();
     const [isCategoryFilterEvents, setIsCategoryFilterEvents] = useState();
+    const [isTitleFilterEvents, setIsTitleFilterEvents] = useState();
+
 
 
     const fetchData = async () => {
@@ -41,6 +43,8 @@ const StoreProvider = ({ children }) => {
             setIsCityFilterEvents,
             isCategoryFilterEvents,
             setIsCategoryFilterEvents,
+            isTitleFilterEvents,
+            setIsTitleFilterEvents,
         }}>
             {children}
         </StoreContext.Provider>
