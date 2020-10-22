@@ -94,11 +94,12 @@ const AddEvent = () => {
     }
 
     const handleCategorySelection = (e) => {
-        const x = document.querySelectorAll(".addevent_type_category--selected")
-        for (let index = 0; index < x.length; index++) {
-            x[index].className = "addevent_type_category";
+        const categoryElement = document.querySelectorAll(".addevent_type_category--selected")
+        for (let index = 0; index < categoryElement.length; index++) {
+            categoryElement[index].className = "addevent_type_category";
         }
         e.target.className = "addevent_type_category--selected"
+    
         setCategory(e.target.innerText)
     };
 

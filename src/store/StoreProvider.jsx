@@ -8,12 +8,15 @@ export const StoreContext = createContext(null);
 
 const StoreProvider = ({ children }) => {
     const [events, setEvents] = useState([]);
+    const [filterevents, setFilterEvents] = useState(events);
     const [user, setUser] = useState(null);
-    const [activeMarkerCordinates, setActiveMarkerCordinates] = useState([52.229675, 21.012230]);
+    const [activeMarkerCordinates, setActiveMarkerCordinates] = useState([52.229676, 21.012229]);
     const [isEditMode, setIsEditMode] = useState();
     const [isCityFilterEvents, setIsCityFilterEvents] = useState();
     const [isCategoryFilterEvents, setIsCategoryFilterEvents] = useState();
     const [isTitleFilterEvents, setIsTitleFilterEvents] = useState();
+    const [animationMarkerActivation, setAnimationMarkerActivation] = useState();
+
 
 
 
@@ -33,6 +36,8 @@ const StoreProvider = ({ children }) => {
         <StoreContext.Provider value={{
             events,
             setEvents,
+            filterevents,
+            setFilterEvents,
             user,
             setUser,
             activeMarkerCordinates,
@@ -45,6 +50,8 @@ const StoreProvider = ({ children }) => {
             setIsCategoryFilterEvents,
             isTitleFilterEvents,
             setIsTitleFilterEvents,
+            animationMarkerActivation,
+            setAnimationMarkerActivation,
         }}>
             {children}
         </StoreContext.Provider>

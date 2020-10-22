@@ -42,7 +42,7 @@ const Filters = () => {
             <div className="localization-container">
                 <select className="localization" onClick={handleCityFilter}>
                     <option value="Warszawa">Warszawa</option>
-                    <option value="Trójmiasto">Trójmiasto</option>
+                    <option value="Gdańsk">Trójmiasto</option>
                 </select>
             </div>
             <div className="event_type-container">

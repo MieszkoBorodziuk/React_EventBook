@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, } from 'react-router-dom';
 import StoreProvider from '../store/StoreProvider';
-import ApiKey from '../data/Key';
 import Header from './Header';
 import Filters from './Filters';
 import Page from '../Layouts/Page';
@@ -12,9 +11,8 @@ import '../Styles/sass/App.sass';
 
 
 
-class App extends Component {
-
-  render() {
+const App = () => {
+  
     return (
       <StoreProvider>
         <Router>
@@ -30,12 +28,7 @@ class App extends Component {
                 <Page />
               </div>
               <div className="main-map">
-                <Map
-                  googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${ApiKey}&v=3.exp&libraries=geometry,drawing,places`}
-                  loadingElement={<div style={{ height: `100%` }} />}
-                  containerElement={<div style={{ height: `100%` }} />}
-                  mapElement={<div style={{ height: `100%` }} />}
-                />
+                <Map />
               </div>
             </main>
           </div>
@@ -47,6 +40,6 @@ class App extends Component {
 
     );
   }
-}
+
 
 export default App;

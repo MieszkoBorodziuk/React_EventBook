@@ -6,7 +6,7 @@ import '../Styles/sass/eventlist.sass';
 
 
 export const EventList = () => {
-    const { events, isCityFilterEvents, isCategoryFilterEvents, isTitleFilterEvents } = useContext(StoreContext);
+    const { events, isCityFilterEvents, isCategoryFilterEvents, isTitleFilterEvents, setFilterEvents } = useContext(StoreContext);
     const [typeOfFilter, setTypeOfFilter] = useState();
 
 
@@ -19,10 +19,11 @@ export const EventList = () => {
 
     }, [isCityFilterEvents, isCategoryFilterEvents, isTitleFilterEvents]);
 
-    let eventsElements = events.map(event => <Event key={event.id} event={event} />);
+    
 
     const FilterEventsElements = (typeOfFilter) => {
-
+        let eventsElements = events.map(event => <Event key={event.id} event={event}/>);
+        
         if (isCityFilterEvents) {
             eventsElements = eventsElements.filter(event => event.props.event.localization[0].name === typeOfFilter[0])
         }
@@ -32,14 +33,17 @@ export const EventList = () => {
         if (isTitleFilterEvents) {
             eventsElements = eventsElements.filter(event => ~event.props.event.title.toLowerCase().indexOf(typeOfFilter[2]));
         }
-        return eventsElements
+        return eventsElements;
+        
     };
-    
-    
-    
+    useEffect(() => {
+        setFilterEvents(FilterEventsElements(typeOfFilter))
+    }, [typeOfFilter, events,setFilterEvents,]);
 
+    
     return (
         <section className="eventlist">
+
             <h3 className="eventlist_title">Lista wydarzeń</h3>
             {FilterEventsElements(typeOfFilter)}
         </section>

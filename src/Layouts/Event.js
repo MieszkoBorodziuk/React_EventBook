@@ -12,7 +12,7 @@ import { NavLink } from 'react-router-dom';
 const Event = (props) => {
 
     const { title, localization, time, date, id, category } = props.event;
-    const { setEvents, setIsEditMode } = useContext(StoreContext);
+    const { setEvents, setIsEditMode, setAnimationMarkerActivation} = useContext(StoreContext);
 
     const handleDeleteEvent = async () => {
 
@@ -44,10 +44,22 @@ const Event = (props) => {
             default: return categroyImgParty
         }
     }
+
+    const myfunction = (e) => {
+        props.event.isActive = true
+        setAnimationMarkerActivation(true)
+    };
+    
+    const myfunctio = (e) => {
+        delete props.event.isActive 
+        setAnimationMarkerActivation(false)
+    };
+    
+
     return (
 
         <article className="event-container">
-            <div className="event">
+            <div className="event" onMouseEnter={myfunction} onMouseLeave={myfunctio}>
                 <div className="eventSide"></div>
                 <img className="event_logo" src={typeCategroyImg(category)} alt=""></img>
                 <div className="event_information">

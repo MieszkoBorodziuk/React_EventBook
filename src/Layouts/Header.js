@@ -12,7 +12,7 @@ const Header = () => {
     const [isModalOpenLoginForm, setisModalOpenLoginForm] = useState(false);
     const [isModalOpenAccountList, setisModalOpenAccountList] = useState(false);
     const [isActiveAddEvent, setIsActiveAddEvent] = useState(false);
-    const { user, setUser, setIsEditMode, setIsCityFilterEvents, setIsCategoryFilterEvents } = useContext(StoreContext);
+    const { user, setUser, setIsEditMode, setIsCityFilterEvents, setIsCategoryFilterEvents,setActiveMarkerCordinates } = useContext(StoreContext);
 
     const handlerShowAccountList = () => {
         setisModalOpenAccountList(true);
@@ -31,6 +31,7 @@ const Header = () => {
         setIsActiveAddEvent(false);
         setIsCityFilterEvents();
         setIsCategoryFilterEvents();
+        setActiveMarkerCordinates([52.229676, 21.012229]);
     };
 
 
