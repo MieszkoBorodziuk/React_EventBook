@@ -10,11 +10,15 @@ import '../Styles/sass/filters.sass';
 
 
 const Filters = () => {
-    const { setIsCityFilterEvents, setIsCategoryFilterEvents, setIsTitleFilterEvents } = useContext(StoreContext);
+    const { setIsCityFilterEvents, setIsCategoryFilterEvents, setIsTitleFilterEvents, setActiveMarkerCordinates } = useContext(StoreContext);
 
 
     const handleCityFilter = (e) => {
         setIsCityFilterEvents(e.target.value)
+        if (e.target.value === "Gdańsk")
+            setActiveMarkerCordinates([54.3520500, 18.6463700, 11])
+        else if (e.target.value === "Warszawa")
+            setActiveMarkerCordinates([52.229676, 21.012229, 11])
     };
 
     const handleCategoryFilter = (e) => {

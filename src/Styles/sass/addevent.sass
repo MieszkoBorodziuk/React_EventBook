@@ -1,16 +1,16 @@
 .addevent-container
     display: grid
-    grid-auto-columns: minmax(120px, 80%)
-    grid-template-rows: repeat(4, auto)
     justify-content: center
     text-align: center
+    grid-auto-columns: minmax(8rem, 80%)
+    grid-template-rows: repeat(4, auto)
     .addevent_title
-            margin: 25px 0 30px 0
+            margin: 2rem 0 2rem 0
             grid-column: 1/-1
             text-align: center
     .addevent_image
-        padding: 30px
-        margin: 0 0 30px 0
+        padding: 2rem
+        margin: 0 0 2rem 0
         text-align: center
         justify-content: center
         background-color: red
@@ -19,27 +19,31 @@
         display: grid
         grid-template-columns: 1fr 1fr
         grid-template-rows: repeat(12, auto)
-        grid-gap: 15px
+        grid-gap: 1rem
         padding: 0 10% 0 10%
         input
-            max-height: 30px
+            max-height: 2rem
+        .addevent_cancelBtn
+            grid-row: 8/9
+            grid-column: 1/2
+            min-height: 25px
         .addevent_submitBtn
-            grid-column: 1/-1
+            rid-row: 8/9
+            grid-column: 2/3
             min-height: 25px
         .addevent_type
             grid-column: 1/-1
             display: grid
-            grid-gap: 5px
+            grid-gap: 0.3rem
             grid-template-columns: 1fr 1fr 
             grid-template-rows: 1fr 1fr
-            
-            min-height: 40px
             .addevent_type_category
-                padding: 5px
+                padding: 0.3rem
                 background-color: #fff
                 cursor: pointer
             .addevent_type_category--selected
-                background-color: #e25e5e
+                padding: 0.3rem
+                background-color: #37a4ec
             
             
     

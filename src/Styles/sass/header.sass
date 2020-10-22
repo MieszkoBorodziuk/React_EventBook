@@ -1,12 +1,15 @@
-div.header
+$defaultColor: #37a4ec
+
+
+.header
     display: flex
     background-color: #fff
     border-bottom: 1px solid #cecece
     height: 3rem
 .logo
-    padding: 10px
-    margin-left: 20px
     width: 15%
+    padding: 0.6rem
+    margin-left: 1rem
 .logo:hover
     opacity: 0.8    
 img
@@ -14,36 +17,35 @@ img
 
 .navigation-container
     display: flex
-    width: 100%
-    align-items: center
     justify-content: flex-end
     vertical-align: right
-    .add_event_btn 
-        height: 30px
-        border: none
-        border-left: 1px solid #b1b3b3
+    align-items: center
+    width: 100%
+    .add_event_btn, .myEvents_btn 
         background-color: #fff
-        color: #37a4ec
-        font-weight: 600
-        padding-right: 10px
-        padding-left: 25px
-        outline: 0
-        cursor: pointer
-    .add_event_btn:hover
-        opacity: 0.8
-    .account_btn
-        height: 25px
-        min-width: 110px
+        color: $defaultColor
+        height: 1.6rem
+        padding-right: 0.6rem
+        padding-left: 1.2rem
         border: none
-        border-radius: 20px
-        margin-right: 15px
-        margin-left: 20px
-        color: #ffffff
-        background-color: #37a4ec
-        outline: 0
         font-weight: 600
         cursor: pointer
-    .account_btn:hover
+        outline: 0
+    .myEvents_btn 
+        border-left: 1px solid #b1b3b3
+    .account_btn
+        background-color: $defaultColor
+        color: #ffffff
+        height: 1.6rem
+        min-width: 6.5rem
+        margin-right: 1rem
+        margin-left: 1.4rem
+        border: none
+        border-radius: 1rem
+        font-weight: 600
+        cursor: pointer
+        outline: 0
+    button:hover
         opacity: 0.8
 
     

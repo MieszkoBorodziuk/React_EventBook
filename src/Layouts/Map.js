@@ -51,7 +51,8 @@ const MapWithAMarker = compose(
     return (
         <GoogleMap
             center={{ lat: activeMarkerCordinates[0], lng: activeMarkerCordinates[1] }}
-            defaultZoom={11}
+            defaultZoom={6}
+            zoom={activeMarkerCordinates[2]}
         >
             {markers}
 

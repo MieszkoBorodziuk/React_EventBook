@@ -10,7 +10,7 @@ const StoreProvider = ({ children }) => {
     const [events, setEvents] = useState([]);
     const [filterevents, setFilterEvents] = useState(events);
     const [user, setUser] = useState(null);
-    const [activeMarkerCordinates, setActiveMarkerCordinates] = useState([52.229676, 21.012229]);
+    const [activeMarkerCordinates, setActiveMarkerCordinates] = useState([52.229676, 19.512229, 6]);
     const [isEditMode, setIsEditMode] = useState();
     const [isCityFilterEvents, setIsCityFilterEvents] = useState();
     const [isCategoryFilterEvents, setIsCategoryFilterEvents] = useState();

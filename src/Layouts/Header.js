@@ -31,7 +31,7 @@ const Header = () => {
         setIsActiveAddEvent(false);
         setIsCityFilterEvents();
         setIsCategoryFilterEvents();
-        setActiveMarkerCordinates([52.229676, 21.012229]);
+        setActiveMarkerCordinates([52.229676, 19.512229,6]);
     };
 
 
@@ -56,7 +56,7 @@ const Header = () => {
                 </div>
                 <div className="navigation-container">
                     {Boolean(user) ?
-                        [<NavLink to={"/userevent"}><button>Moje wydarzenia</button></NavLink>,
+                        [<NavLink to={"/userevent"}><button className="myEvents_btn">Moje wydarzenia</button></NavLink>,
                         <NavLink onClick={handleOnClickAddEventBtn} to={isActiveAddEvent ? "/" : "/addevent"}><button className="add_event_btn">{isActiveAddEvent ? "Lista Eventow" : "Dodaj Event"}</button></NavLink>]
                         : null}
                     <button onClick={handlerShowAccountList} className="account_btn">Moje konto</button>

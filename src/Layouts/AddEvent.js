@@ -5,8 +5,9 @@ import request from '../helpers/request';
 import { StoreContext } from '../store/StoreProvider';
 import { useContext } from 'react';
 
+
 const AddEvent = () => {
-    const { user, setUser, events, setEvents, setActiveMarkerCordinates, isEditMode, setIsEditMode } = useContext(StoreContext);
+    const { user, setUser, events, setEvents, setActiveMarkerCordinates, isEditMode, setIsEditMode} = useContext(StoreContext);
 
     const [title, setTitle] = useState('');
     // const [isPublic, setIsPublic] = useState(true);
@@ -54,8 +55,7 @@ const AddEvent = () => {
     };
 
 
-
-    const handleOnClick = async () => {
+    const handleOnAddClick = async () => {
         const eventObject = {
             title,
             id,
@@ -99,7 +99,7 @@ const AddEvent = () => {
             categoryElement[index].className = "addevent_type_category";
         }
         e.target.className = "addevent_type_category--selected"
-    
+
         setCategory(e.target.innerText)
     };
 
@@ -127,7 +127,8 @@ const AddEvent = () => {
                     <div className="addevent_type_category" onClick={handleCategorySelection}>gry</div>
                     <div className="addevent_type_category" onClick={handleCategorySelection}>rozrywka</div>
                 </div>
-                <button className="addevent_submitBtn" onClick={handleOnClick}>Dodaj</button>
+                <button className="addevent_submitBtn" onClick={handleOnAddClick}>Dodaj</button>
+                <button className="addevent_cancelBtn" >Anuluj</button>
             </div>
         </div>
     );

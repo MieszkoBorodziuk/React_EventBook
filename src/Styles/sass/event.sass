@@ -1,40 +1,38 @@
 .event-container
-
-    .event_moreinformation
-        margin: 10px
-        padding: 7px
-        margin-top: -15px
-        display: none
-
+    // .event_moreinformation
+    //     display: none
+    //     margin: 10px
+    //     margin-top: -15px
+    //     padding: 7px
     .event
-        position: relative
-        z-index: 2
-        margin: 10px
-        border-radius: 10px
-        box-shadow: 0px 0px 4px 2px #033f6d61
-        background-color: #fff
         display: grid
         grid-template-columns: 2px 2fr 9fr
-        max-height: 50px
+        position: relative
+        background-color: #fff
+        max-height: 3.2rem
+        margin: 0.5rem
+        border-radius: 0.6rem
+        box-shadow: 0px 0px 4px 2px #033f6d61
+        z-index: 2
         .eventSide
+            background-color: #000
             height: 100%
-            width: 5px
+            width: 0.3rem
             grid-column: 1/2
             grid-row: 1/-1
-            border-top-left-radius: 10px
-            border-bottom-left-radius: 10px
-            background-color: #000
+            border-top-left-radius: 0.7rem
+            border-bottom-left-radius: 0.7rem
         .event_logo
-            margin-left: 3px
-            height: 51px
+            background-size: cover
+            height: 3.2rem
+            margin-left: 0.19rem
             grid-column: 2/3
             grid-row: 1/-1
-            background-size: cover
         .event_information
-            padding: 7px
             display: grid
             grid-template-columns: 1fr 1fr
             grid-template-rows: 1fr 1fr
+            padding: 0.4rem
             .event_information_name
                 grid-column: 1/2
                 grid-row: 1/2
@@ -49,30 +47,29 @@
                 grid-column: 2/-1
                 grid-row: 2/-1
                 text-align: right
-.event-container:hover
-    .event_moreinformation_label
-        margin-top: 7px
-    .event_moreinformation
-        position: relative
-        z-index: -1
-        display: flex
-        transition: 5s
-        background-color: #c9e6f8
-        border-bottom-left-radius: 10px
-        border-bottom-right-radius: 10px
-        min-height: 30px
-        justify-content: flex-start
-        .event_moreinformation_detail_btn
-            margin-right: auto
-        button
-            height: 25px
-            min-width: 60px
-            border: none
-            border-radius: 20px
-            margin-right: 15px
-            margin-left: 20px
-            color: #fff
-            background-color: #37a4ec
-            outline: 0
-            font-weight: 600
-            margin: 5px
+    // .event_moreinformation_label
+    //     margin-top: 7px
+    // .event_moreinformation
+    //     position: relative
+    //     z-index: -1
+    //     display: flex
+    //     transition: 5s
+    //     background-color: #c9e6f8
+    //     border-bottom-left-radius: 10px
+    //     border-bottom-right-radius: 10px
+    //     min-height: 30px
+    //     justify-content: flex-start
+    //     .event_moreinformation_detail_btn
+    //         margin-right: auto
+    //     button
+    //         height: 25px
+    //         min-width: 60px
+    //         border: none
+    //         border-radius: 20px
+    //         margin-right: 15px
+    //         margin-left: 20px
+    //         color: #fff
+    //         background-color: #37a4ec
+    //         outline: 0
+    //         font-weight: 600
+    //         margin: 5px
