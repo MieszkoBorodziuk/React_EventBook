@@ -22,9 +22,9 @@ const StoreProvider = ({ children }) => {
 
 
     const fetchData = async () => {
-        const { data } = await request.get('/courses');
+        const { data } = await request.get('/events');
 
-        setEvents(data.courses);
+        setEvents(data.events);
     };
 
 

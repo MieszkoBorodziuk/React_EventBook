@@ -73,24 +73,24 @@ const AddEvent = () => {
             category,
         }
         if (isEditMode !== undefined) {
-            const { data, status } = await request.put('/courses', eventObject);
+            const { data, status } = await request.put('/events', eventObject);
             if (status === 202) {
-                setEvents(data.courses);
+                setEvents(data.events);
             }
         } else {
-            const { data, status } = await request.post('/courses', eventObject);
+            const { data, status } = await request.post('/events', eventObject);
             if (status === 201) {
-                setEvents(data.courses);
-                const number = data.courses.length - 1;
-                assigmentEventToUser(data.courses[number].id)
+                setEvents(data.events);
+                const number = data.events.length - 1;
+                assigmentEventToUser(data.events[number].id)
             }
         }
         setIsEditMode(undefined);
     };
 
-    const assigmentEventToUser = async (courseId) => {
+    const assigmentEventToUser = async (eventId) => {
         try {
-            const { data, status } = await request.patch('/users', { login: user.login, courseId: courseId });
+            const { data, status } = await request.patch('/users', { login: user.login, eventId: eventId });
 
             if (status === 202) {
                 setUser(data.user)
