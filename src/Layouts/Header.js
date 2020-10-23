@@ -11,8 +11,7 @@ import Modal from '../components/Modal/Modal';
 const Header = () => {
     const [isModalOpenLoginForm, setisModalOpenLoginForm] = useState(false);
     const [isModalOpenAccountList, setisModalOpenAccountList] = useState(false);
-    const [isActiveAddEvent, setIsActiveAddEvent] = useState(false);
-    const { user, setUser, setIsEditMode, setIsCityFilterEvents, setIsCategoryFilterEvents,setActiveMarkerCordinates } = useContext(StoreContext);
+    const { user, setUser, setIsEditMode, setIsCityFilterEvents, setIsCategoryFilterEvents, setActiveMarkerCordinates, setIsActiveAddEvent, isActiveAddEvent } = useContext(StoreContext);
 
     const handlerShowAccountList = () => {
         setisModalOpenAccountList(true);
@@ -31,7 +30,7 @@ const Header = () => {
         setIsActiveAddEvent(false);
         setIsCityFilterEvents();
         setIsCategoryFilterEvents();
-        setActiveMarkerCordinates([52.229676, 19.512229,6]);
+        setActiveMarkerCordinates([52.229676, 19.512229, 6]);
     };
 
 

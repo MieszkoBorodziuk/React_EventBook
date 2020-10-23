@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import '../Styles/sass/addevent.sass';
 import SearchBox from '../Layouts/SearchBox'
 import request from '../helpers/request';
+import { NavLink } from 'react-router-dom';
 import { StoreContext } from '../store/StoreProvider';
 import { useContext } from 'react';
 
 
-const AddEvent = () => {
-    const { user, setUser, events, setEvents, setActiveMarkerCordinates, isEditMode, setIsEditMode} = useContext(StoreContext);
 
+const AddEvent = () => {
+    const { user, setUser, events, setEvents, setActiveMarkerCordinates, isEditMode, setIsEditMode,
+    setIsActiveAddEvent, setIsCityFilterEvents, setIsCategoryFilterEvents} = useContext(StoreContext);
     const [title, setTitle] = useState('');
     // const [isPublic, setIsPublic] = useState(true);
     const [date, setDate] = useState([new Date().toISOString().slice(0, 10), new Date().toISOString().slice(0, 10)]);
@@ -54,6 +56,12 @@ const AddEvent = () => {
         setActiveMarkerCordinates([localization[0].geometry.location.lat(), localization[0].geometry.location.lng()]);
     };
 
+    const handleOnCancelClick = () => {
+        setIsActiveAddEvent(false);
+        setIsCityFilterEvents();
+        setIsCategoryFilterEvents();
+        setActiveMarkerCordinates([52.229676, 19.512229,6]);
+    }
 
     const handleOnAddClick = async () => {
         const eventObject = {
@@ -128,7 +136,7 @@ const AddEvent = () => {
                     <div className="addevent_type_category" onClick={handleCategorySelection}>rozrywka</div>
                 </div>
                 <button className="addevent_submitBtn" onClick={handleOnAddClick}>Dodaj</button>
-                <button className="addevent_cancelBtn" >Anuluj</button>
+                <NavLink className="addevent_cancelBtn" to="/"><button className="addevent_cancelBtn" onClick={handleOnCancelClick}>Anuluj</button></NavLink>
             </div>
         </div>
     );
