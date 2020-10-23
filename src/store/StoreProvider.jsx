@@ -16,6 +16,7 @@ const StoreProvider = ({ children }) => {
     const [isCategoryFilterEvents, setIsCategoryFilterEvents] = useState();
     const [isTitleFilterEvents, setIsTitleFilterEvents] = useState();
     const [animationMarkerActivation, setAnimationMarkerActivation] = useState();
+    const [isActiveAddEvent, setIsActiveAddEvent] = useState(false);
 
 
 
@@ -52,6 +53,8 @@ const StoreProvider = ({ children }) => {
             setIsTitleFilterEvents,
             animationMarkerActivation,
             setAnimationMarkerActivation,
+            isActiveAddEvent,
+            setIsActiveAddEvent,
         }}>
             {children}
         </StoreContext.Provider>
